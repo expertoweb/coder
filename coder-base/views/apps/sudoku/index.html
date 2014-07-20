@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Coder</title>
+    <meta charset="utf-8">
+    <!-- Standard Coder Includes -->
+    <script>
+        var appname = "{{app_name}}"; //app name (id) of this app
+        var appurl = "{{&app_url}}";
+        var staticurl = "{{&static_url}}"; //base path to your static files /static/apps/yourapp
+    </script>
+    <link href="/static/apps/coderlib/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="/static/common/js/jquery.min.js"></script>
+    <script src="/static/common/ace-min/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/static/apps/coderlib/js/index.js"></script>
+    <script>
+        Coder.addBasicNav();
+    </script>
+    <!-- End Coder Includes --><!-- Custom styles and includes -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <script src="//code.jquery.com/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+    <!-- End Custom styles and includes -->
+    
+    <!-- This app's includes -->
+    <link href="{{&static_url}}/css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="{{&static_url}}/js/index.js"></script>
+    <!-- End apps includes -->
+    
+    
+</head> 
+<body> 
+<div class="container" id="page">
+    <div class="row">
+        <div class="col-md-4">
+		    <h1>Sudoku</h1>
+        </div>
+	</div>
+    <div class="row">    
+		<div class="col-md-4">
+        	<div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                    Options
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" id="new" tabindex="-1" href="#">New game</a></li>
+                    <li role="presentation"><a role="menuitem" id="solve" tabindex="-1" href="#">Solve</a></li>
+                    <li role="presentation"><a role="menuitem" id="scores" tabindex="-1" href="#">High scores</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li role="presentation"><a role="menuitem" id="quit" tabindex="-1" href="#">Quit</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+	<div class="row">	
+		<div class="col-sm-2">
+            <table class="table table-bordered">
+                <tr>
+                    <td style="border-left: 1px solid black; border-top: 1px solid black"><input id="cell1" type="text"></td>
+                    <td style="border-top: 1px solid black"><input id="cell2" type="text"></td>
+                    <td style="border-top: 1px solid black;border-right: 1px solid black"><input id="cell3" type="text"></td>
+                    <td style="border-top: 1px solid black;"><input id="cell4" type="text"></td>
+                    <td style="border-top: 1px solid black;"><input id="cell5" type="text"></td>
+                    <td style="border-top: 1px solid black;border-right: 1px solid black"><input id="cell6" type="text"></td>
+                    <td style="border-top: 1px solid black;"><input id="cell7" type="text"></td>
+                    <td style="border-top: 1px solid black;"><input id="cell8" type="text"></td>
+                    <td style="border-top: 1px solid black;border-right: 1px solid black;"><input id="cell9" type="text"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid black; border-top: 1px solid black"><input id="cell10" type="text"></td>
+                    <td><input id="cell11" type="text"></td>
+                    <td style="border-right: 1px solid black"><input id="cell12" type="text"></td>
+                    <td ><input id="cell13" type="text"></td>
+                    <td><input id="cell14" type="text"></td>
+                    <td style="border-right: 1px solid black"><input id="cell15" type="text"></td>
+                    <td><input id="cell16" type="text"></td>
+                    <td><input id="cell17" type="text"></td>
+                    <td style="border-right: 1px solid black;"><input id="cell18" type="text"></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid black;border-left: 1px solid black;"><input id="cell19" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell20" type="text"></td>
+                    <td style="border-bottom: 1px solid black;border-right: 1px solid black"><input id="cell21" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell22" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell23" type="text"></td>
+                    <td style="border-right: 1px solid black;border-bottom: 1px solid black;"><input id="cell24" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell25" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell26" type="text"></td>
+                    <td style="border-bottom: 1px solid black;border-right: 1px solid black;"><input id="cell27" type="text"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid black;"><input id="cell28" type="text"></td>
+                    <td><input id="cell29" type="text"></td>
+                    <td style="border-right: 1px solid black"><input id="cell30" type="text"></td>
+                    <td><input id="cell31" type="text"></td>
+                    <td><input id="cell32" type="text"></td>
+                    <td style="border-right: 1px solid black"><input id="cell33" type="text"></td>
+                    <td><input id="cell34" type="text"></td>
+                    <td><input id="cell35" type="text"></td>
+                    <td style="border-right: 1px solid black;"><input id="cell36" type="text"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid black;"><input id="cell37" type="text"></td>
+                    <td><input id="cell38" type="text"></td>
+                    <td style="border-right: 1px solid black"><input id="cell39" type="text"></td>
+                    <td><input id="cell40" type="text"></td>
+                    <td><input id="cell41" type="text"></td>
+                    <td style="border-right: 1px solid black"><input id="cell42" type="text"></td>
+                    <td><input id="cell43" type="text"></td>
+                    <td><input id="cell44" type="text"></td>
+                    <td style="border-right: 1px solid black;"><input id="cell45" type="text"></td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px solid black;border-left: 1px solid black;"><input id="cell46" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell47" type="text"></td>
+                    <td style="border-right: 1px solid black;border-bottom: 1px solid black;"><input id="cell48" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell49" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell50" type="text"></td>
+                    <td style="border-bottom: 1px solid black;border-right: 1px solid black"><input id="cell51" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell52" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell53" type="text"></td>
+                    <td style="border-bottom: 1px solid black;border-right: 1px solid black;"><input id="cell54" type="text"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid black;"><input id="cell55" type="text"></td>
+                    <td><input id="cell56" type="text"></td>
+                    <td style="border-right: 1px solid black"><input id="cell57" type="text"></td>
+                    <td><input id="cell58" type="text"></td>
+                    <td><input id="cell59" type="text"></td>
+                    <td style="border-right: 1px solid black"><input id="cell60" type="text"></td>
+                    <td><input id="cell61" type="text"></td>
+                    <td><input id="cell62" type="text"></td>
+                    <td style="border-right: 1px solid black;"><input id="cell63" type="text"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid black;"><input id="cell64" type="text"></td>
+                    <td><input id="cell65" type="text"></td>
+                    <td style="border-right: 1px solid black"><input id="cell66" type="text"></td>
+                    <td><input id="cell67" type="text"></td>
+                    <td><input id="cell68" type="text"></td>
+                    <td style="border-right: 1px solid black"><input id="cell69" type="text"></td>
+                    <td><input id="cell70" type="text"></td>
+                    <td><input id="cell71" type="text"></td>
+                    <td style="border-right: 1px solid black;"><input id="cell72" type="text"></td>
+                </tr>
+                <tr>
+                    <td style="border-left: 1px solid black; border-bottom: 1px solid black;"><input id="cell73" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell74" type="text"></td>
+                    <td style="border-bottom: 1px solid black;border-right: 1px solid black;"><input id="cell75" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell76" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell77" type="text"></td>
+                    <td style="border-right: 1px solid black;border-bottom: 1px solid black;"><input id="cell78" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell79" type="text"></td>
+                    <td style="border-bottom: 1px solid black;"><input id="cell80" type="text"></td>
+                    <td style="border-right: 1px solid black;border-bottom: 1px solid black;"><input id="cell81" type="text"></td>
+                </tr>
+            <table>
+        </div>
+	</div>
+    <hr>
+	<div class="">
+		<h5>@expertoweb</h5>
+	</div>
+</div>
+
+</body>
+</html>

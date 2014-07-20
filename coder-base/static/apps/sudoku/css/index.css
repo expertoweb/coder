@@ -1,0 +1,15 @@
+
+.pagecontent {
+    padding: 24px;
+}
+
+input {
+    border: none;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: xx-large;
+    background: transparent;
+    color:#333333;
+}
+
